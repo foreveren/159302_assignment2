@@ -186,14 +186,14 @@ void initFuzzySystem (fuzzy_system_rec *fl) {
    fl->no_of_inp_regions = 5;
    fl->no_of_outputs = 9;
 	
-//   coefficient_A=0.8;
-//   coefficient_B=0.2;
-//   coefficient_C=0.53;
-//   coefficient_D=0.46;
-    coefficient_A=0.8;
-    coefficient_B=0.2;
-    coefficient_C=0.6;
-    coefficient_D=0.4;
+   coefficient_A=0.8;
+   coefficient_B=0.2;
+   coefficient_C=0.55;
+   coefficient_D=0.45;
+//    coefficient_A=0.8;
+//    coefficient_B=0.2;
+//    coefficient_C=0.6;
+//    coefficient_D=0.4;
 	//Sample only
     fl->output_values [out_nvvl]=-100.0f;
 	 fl->output_values [out_nvl]=-70.0f;

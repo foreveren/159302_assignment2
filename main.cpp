@@ -310,17 +310,17 @@ void runInvertedPendulum(){
             prevState.init();
         	prevState.x = 1.0;
 
-		    //cout << "Enter initial angle [-60, 60], (to exit, leave it blank): ";
+		    cout << "Enter initial angle [-60, 60], (to exit, leave it blank): ";
 		    
 
 		    input_angle=20.0;
 
-//		    std::string input;
-//		    std::getline( std::cin, input );
-//		    if ( !input.empty() ) {
-//		        std::istringstream stream( input );
-//		        stream >> input_angle;
-//		    }
+		    std::string input;
+		    std::getline( std::cin, input );
+		    if ( !input.empty() ) {
+		        std::istringstream stream( input );
+		        stream >> input_angle;
+		    }
 		    
 
 		    if( (input_angle < -60) || (input_angle > 60) ){
@@ -356,7 +356,7 @@ void runInvertedPendulum(){
 				
 		         //1) Enable this only after your fuzzy system has been completed already.
 		         //Remember, you need to define the rules, membership function parameters and rule outputs.
-		         prevState.F = fuzzy_system(inputs, g_fuzzy_system); //call the fuzzy controller
+		         prevState.F = fuzzy_system(inputs, g_fuzzy_system)*3; //call the fuzzy controller
 				 
 				 externalForce=0.0;
 				 externalForce = getKey(); //manual operation
@@ -570,7 +570,7 @@ void generateControlSurface_Angle_vs_Angle_Dot(){
 			 prevState.angle_dot = newState.angle_dot;		
 			 prevState.angle_double_dot = newState.angle_double_dot;
 			 prevState.x_double_dot = newState.x_double_dot;
-			 
+             cout<<"hello"<<endl;
 			 //--------------------------
 			 // inputs[in_theta] = prevState.angle;
 			 // inputs[in_theta_dot] = prevState.angle_dot;
@@ -657,13 +657,13 @@ int main(void) {
    initgraph(&graphDriver, &graphMode, "", 800, 600); // Start Window
    clearDataSet();
    try{
-		runInvertedPendulum();
+		//runInvertedPendulum();
 	
 		//3) Enable this only after your fuzzy system has been completed already.
-		//generateControlSurface_Angle_vs_Angle_Dot();
+		generateControlSurface_Angle_vs_Angle_Dot();
 		
 		//4) Enable this only after your fuzzy system has been completed already.
-		//saveDataToFile("data_angle_vs_angle_dot.txt");
+		saveDataToFile("data_angle_vs_angle_dot.txt");
 		
    }
    catch(...){
