@@ -6,10 +6,8 @@
 //Initialise Fuzzy Rules
 
 void initFuzzyRules(fuzzy_system_rec *fl) {
-	
-   const int
-      no_of_x_rules = 25,
-      no_of_theta_rules = 25;
+
+   const int no_of_rules=25;
    
    int i;
 	
@@ -45,7 +43,7 @@ void initFuzzyRules(fuzzy_system_rec *fl) {
 
    // fl->rules[25+24].out_fuzzy_set = out_nl;
 
-    for (i = 0;i < no_of_theta_rules;i++) {
+    for (i = 0;i < no_of_rules;i++) {
         fl->rules[i].inp_index[0] = INPUT_X;
         fl->rules[i].inp_index[1] = INPUT_Y;
     }
@@ -113,13 +111,12 @@ void initFuzzyRules(fuzzy_system_rec *fl) {
     fl->rules[1].out_fuzzy_set = out_nl;
     fl->rules[2].out_fuzzy_set = out_nm;
     fl->rules[3].out_fuzzy_set = out_pvvl;
-    fl->rules[4].out_fuzzy_set = out_pl;
+    fl->rules[4].out_fuzzy_set = out_pvl;
 
     fl->rules[5].out_fuzzy_set = out_nvs;
     fl->rules[6].out_fuzzy_set = out_nl;
     fl->rules[7].out_fuzzy_set = out_nvvl;
-    //fl->rules[8].out_fuzzy_set = out_pvl;
-    fl->rules[8].out_fuzzy_set = out_pvvl;
+    fl->rules[8].out_fuzzy_set = out_pvl;
     fl->rules[9].out_fuzzy_set = out_pm;
 
     fl->rules[10].out_fuzzy_set = out_nvl;
@@ -130,14 +127,13 @@ void initFuzzyRules(fuzzy_system_rec *fl) {
 
     fl->rules[15].out_fuzzy_set = out_nm;
     fl->rules[16].out_fuzzy_set = out_nvvl;
-    //fl->rules[17].out_fuzzy_set = out_pvl;
-    fl->rules[17].out_fuzzy_set = out_pvvl;
+    fl->rules[17].out_fuzzy_set = out_pvl;
     fl->rules[18].out_fuzzy_set = out_pl;
     fl->rules[19].out_fuzzy_set = out_pvs;
 
-    fl->rules[20].out_fuzzy_set = out_nl;
+    fl->rules[20].out_fuzzy_set = out_nm;
     fl->rules[21].out_fuzzy_set = out_nvvl;
-    fl->rules[22].out_fuzzy_set = out_pm;
+    fl->rules[22].out_fuzzy_set = out_ps;
     fl->rules[23].out_fuzzy_set = out_pl;
     fl->rules[24].out_fuzzy_set = out_ps;
 
@@ -182,7 +178,7 @@ void initFuzzySystem (fuzzy_system_rec *fl) {
 
    //Note: The settings of these parameters will depend upon your fuzzy system design
    fl->no_of_inputs = 2;  /* Inputs are handled 2 at a time only */
-   fl->no_of_rules = 50;
+   fl->no_of_rules = 25;
    fl->no_of_inp_regions = 5;
    fl->no_of_outputs = 9;
 	
@@ -190,38 +186,22 @@ void initFuzzySystem (fuzzy_system_rec *fl) {
    coefficient_B=0.2;
    coefficient_C=0.55;
    coefficient_D=0.45;
-//    coefficient_A=0.8;
-//    coefficient_B=0.2;
-//    coefficient_C=0.6;
-//    coefficient_D=0.4;
-	//Sample only
-    fl->output_values [out_nvvl]=-100.0f;
-	 fl->output_values [out_nvl]=-70.0f;
-	 fl->output_values [out_nl] = -50.0f;
-     fl->output_values [out_nm]=-30.0f;
-     fl->output_values [out_ns] = -20.0f;
-    fl->output_values [out_nvs] = -10.0f;
-    fl->output_values [out_ze]=0.0f;
-    fl->output_values [out_pvs] = 10.0f;
-    fl->output_values [out_ps] = 20.0f;
-    fl->output_values [out_pm]=30.0f;
-    fl->output_values [out_pl] = 50.0f;
-    fl->output_values [out_pvl]=70.0f;
-    fl->output_values [out_pvvl]=100.0f;
 
-//    fl->output_values[out_nvvl] = -114.0f;
-//    fl->output_values[out_nvl] = -104.0f;
-//    fl->output_values[out_nl] = -95.0f;
-//    fl->output_values[out_nm] = -91.0f;
-//    fl->output_values[out_ns] = -80.0f;
-//    fl->output_values[out_nvs] = -71.0f;
-//    fl->output_values[out_ze] = 0.0f;
-//    fl->output_values[out_pvs] = 71.0f;
-//    fl->output_values[out_ps] = 80.0f;
-//    fl->output_values[out_pm] = 91.0f;
-//    fl->output_values[out_pl] = 95.0f;
-//    fl->output_values[out_pvl] = 104.0f;
-//    fl->output_values[out_pvvl] = 114.0f;
+	//Sample only
+    fl->output_values [out_nvvl]=-110.0f;
+	 fl->output_values [out_nvl]=-100.0f;
+	 fl->output_values [out_nl] = -90.0f;
+     fl->output_values [out_nm]=-80.0f;
+     fl->output_values [out_ns] = -70.0f;
+    fl->output_values [out_nvs] = -60.0f;
+    fl->output_values [out_ze]=0.0f;
+    fl->output_values [out_pvs] = 60.0f;
+    fl->output_values [out_ps] = 70.0f;
+    fl->output_values [out_pm]= 80.0f;
+    fl->output_values [out_pl] = 90.0f;
+    fl->output_values [out_pvl]=100.0f;
+    fl->output_values [out_pvvl]=110.0f;
+
 
    fl->rules = (rule *) malloc ((size_t)(fl->no_of_rules*sizeof(rule)));
    initFuzzyRules(fl);
